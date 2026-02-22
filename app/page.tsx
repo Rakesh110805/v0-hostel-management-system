@@ -45,9 +45,15 @@ export default function LoginPage() {
     admin: "Enter your email or admin ID",
   }
 
+  const roleRoutes: Record<Role, string> = {
+    student: "/dashboard",
+    warden: "/warden",
+    admin: "/admin",
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    router.push("/dashboard")
+    router.push(roleRoutes[selectedRole])
   }
 
   return (
